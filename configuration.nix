@@ -67,8 +67,6 @@
     git
     brightnessctl    
     bibata-cursors
-    nerd-fonts.hurmit
-    nerd-fonts.code-new-roman
   ];
 
   environment.shellAliases = {
