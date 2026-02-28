@@ -12,6 +12,7 @@
 
   home.packages = with pkgs; [
     hyprshot
+    waybar
     kdePackages.dolphin
     swww
     discord
