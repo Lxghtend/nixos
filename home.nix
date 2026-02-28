@@ -3,11 +3,17 @@
   home.homeDirectory = "/home/ethan";
   home.stateVersion = "25.11";
 
-  programs.bash.enable = true;
-  programs.bash.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#$(hostname)";
-    home = "sudo nano /etc/nixos/home.nix";
-    config = "sudo nano /etc/nixos/configuration.nix";
+
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#$(hostname)";
+      home = "sudo nano /etc/nixos/home.nix";
+      config = "sudo nano /etc/nixos/configuration.nix";
+    };
+    bashrcExtra = ''
+      nerdfetch
+    '';
   };
 
   home.packages = with pkgs; [
