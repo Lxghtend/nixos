@@ -32,5 +32,6 @@
     swaynotificationcenter
     nerd-fonts.hurmit
     nerd-fonts.code-new-roman
+    steam
   ];
 }

@@ -114,6 +114,7 @@
         "$mainMod, D, exec, $discord"
         "$mainMod, V, togglefloating"
         "$mainMod, R, exec, $menu"
+        "$mainMod, S, exec, steam"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
         "$mainMod, F, fullscreen"

@@ -7,6 +7,13 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  boot.kernelModules = [ "amdgpu" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
