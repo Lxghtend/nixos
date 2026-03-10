@@ -72,6 +72,7 @@
   environment.systemPackages = with pkgs; [
     nano
     git
+    tailscale
     brightnessctl    
     bibata-cursors
   ];

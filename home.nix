@@ -22,11 +22,16 @@
   };
 
   home.packages = with pkgs; [
+    neovim
+    cmake
+    gcc
+    gnumake
     hyprshot
     waybar
     kdePackages.dolphin
     swww
     discord
+    easyeffects
     fastfetch
     nerdfetch
     swaynotificationcenter
