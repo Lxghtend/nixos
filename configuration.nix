@@ -60,6 +60,8 @@
     pulse.enable = true;
   };
 
+  services.tailscale.enable = true;
+
   users.users.ethan = {
     isNormalUser = true;
     description = "ethan";
@@ -75,13 +77,6 @@
     tailscale
     brightnessctl    
     bibata-cursors
-  ];
-
-  environment.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#$(hostname)";
-    home = "sudo nano /etc/nixos/home.nix";
-    config = "sudo nano /etc/nixos/configuration.nix";
-  };
- 
+  ]; 
   system.stateVersion = "25.11";
 }

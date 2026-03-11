@@ -7,9 +7,10 @@
       home = "sudo nano /etc/nixos/home.nix";
       config = "sudo nano /etc/nixos/configuration.nix";
       nixd = "cd /etc/nixos";
+      nerdfetch = "/etc/nixos/modules/nerdfetch";
     };
     bashrcExtra = ''
-      nerdfetch
+      /etc/nixos/modules/nerdfetch
     '';
   };
 }
