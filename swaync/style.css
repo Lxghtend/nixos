@@ -496,3 +496,9 @@ trough slider:hover {
     margin: 8px;
     border-radius: 12px;
 }
+
+/* Removes image above "No Notifications" */
+.control-center stack box image {
+    opacity: 0;
+    min-height: 0;
+}
