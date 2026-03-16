@@ -21,10 +21,10 @@
     "swaync/style.css".source = ./swaync/style.css;
   };
 
-  programs.starship = {
-    enable = true;
-    enableBashIntegration = true;
-  };
+ # programs.starship = {
+ #   enable = true;
+ #   enableBashIntegration = true;
+ # };
 
   services.easyeffects.enable = true;
 
