@@ -8,6 +8,7 @@
     ./modules/kitty.nix
     ./modules/bash.nix
     ./modules/wofi.nix
+    ./modules/git.nix
   ];
 
   xdg.configFile = {
@@ -29,22 +30,27 @@
   services.easyeffects.enable = true;
 
   home.packages = with pkgs; [
+    # Coding
     neovim
     cmake
     gcc
     gnumake
+    # Desktop
     hyprshot
     waybar
+    swaynotificationcenter
     kdePackages.dolphin
     swww
+    # Apps
     discord
     obs-studio
     easyeffects
     fastfetch
     nerdfetch
-    swaynotificationcenter
+    # Fonts
     nerd-fonts.hurmit
     nerd-fonts.code-new-roman
+    # Gaming
     steam
     r2modman
   ];
