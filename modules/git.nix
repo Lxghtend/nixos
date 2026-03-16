@@ -2,9 +2,9 @@
 {
   programs.git = {
     enable = true;
-    userName = "Lxghtend";
-    userEmail = "lxghtend@gmail.com";
-    extraConfig = {
+    settings = {
+      user.name = "Lxghtend";
+      user.email = "lxghtend@gmail.com";
       credential.helper = "store";
     };
   };
