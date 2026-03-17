@@ -8,6 +8,7 @@
       config = "sudo nano /etc/nixos/configuration.nix";
       nixd = "cd /etc/nixos";
       nerdfetch = "/etc/nixos/modules/nerdfetch";
+      windows = "nix-shell -p efibootmgr --run 'sudo efibootmgr --bootnext 0007 && sudo reboot'";
     };
     bashrcExtra = ''
       /etc/nixos/modules/nerdfetch
