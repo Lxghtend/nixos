@@ -47,6 +47,7 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = false;
+    theme = "minesddm";
   };
 
   services.printing.enable = true;
