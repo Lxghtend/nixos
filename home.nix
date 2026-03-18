@@ -9,6 +9,7 @@
     ./modules/bash.nix
     ./modules/wofi.nix
     ./modules/git.nix
+    ./modules/nvim
   ];
 
   xdg.configFile = {
@@ -31,7 +32,7 @@
 
   home.packages = with pkgs; [
     # Coding
-    neovim
+    #neovim
     cmake
     gcc
     gnumake

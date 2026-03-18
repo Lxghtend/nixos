@@ -21,6 +21,10 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.ethan = import ./home.nix;
+	  home-manager.users.root = {
+		imports = [ ./modules/nvim ];
+		home.stateVersion = "25.11";
+	  };
         }
       ];
     };
