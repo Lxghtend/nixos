@@ -4,8 +4,8 @@
     enable = true;
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#$(hostname)";
-      home = "sudo nano /etc/nixos/home.nix";
-      config = "sudo nano /etc/nixos/configuration.nix";
+      home = "sudo nvim /etc/nixos/home.nix";
+      config = "sudo nvim /etc/nixos/configuration.nix";
       nixd = "cd /etc/nixos";
       nerdfetch = "/etc/nixos/modules/nerdfetch";
     };
