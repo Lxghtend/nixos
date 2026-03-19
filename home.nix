@@ -44,10 +44,14 @@
     easyeffects
     fastfetch
     nerdfetch
+    pyprland
     swaynotificationcenter
+    htop
+    pulsemixer
     nerd-fonts.hurmit
     nerd-fonts.code-new-roman
-    steam
+    #steam
+    pkgs.millennium-steam
     r2modman
   ];
 }

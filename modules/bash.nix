@@ -7,6 +7,7 @@
       home = "sudo nvim /etc/nixos/home.nix";
       config = "sudo nvim /etc/nixos/configuration.nix";
       nixd = "cd /etc/nixos";
+      extract = "tar -xf";
       nerdfetch = "/etc/nixos/modules/nerdfetch";
     };
     bashrcExtra = ''

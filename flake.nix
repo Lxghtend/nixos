@@ -9,8 +9,9 @@
       url = "github:Davi-S/sddm-theme-minesddm/development";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
   };
-  outputs = { nixpkgs, home-manager, minesddm, ... }: {
+  outputs = { nixpkgs, home-manager, minesddm, millennium, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -21,6 +22,11 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.ethan = import ./home.nix;
+          home-manager.users.root = {
+            imports = [ ./modules/nvim ];
+            home.stateVersion = "25.11";
+          };
+          nixpkgs.overlays = [ millennium.overlays.default ];
         }
       ];
     };
