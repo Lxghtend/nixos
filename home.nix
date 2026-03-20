@@ -38,6 +38,9 @@
     gnumake
     # Desktop
     hyprshot
+    pyprland
+    pulsemixer
+    htop
     waybar
     swaynotificationcenter
     kdePackages.dolphin
@@ -52,7 +55,8 @@
     nerd-fonts.hurmit
     nerd-fonts.code-new-roman
     # Gaming
-    steam
+    #steam
+    millennium-steam
     r2modman
   ];
 }

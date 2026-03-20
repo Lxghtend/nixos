@@ -7,8 +7,9 @@
       home = "sudo nvim /etc/nixos/home.nix";
       config = "sudo nvim /etc/nixos/configuration.nix";
       nixd = "cd /etc/nixos";
-      nerdfetch = "/etc/nixos/modules/nerdfetch";
+      extract = "tar -xf";
       windows = "nix-shell -p efibootmgr --run 'sudo efibootmgr --bootnext 0007 && sudo reboot'";
+      nerdfetch = "/etc/nixos/modules/nerdfetch";
     };
     bashrcExtra = ''
       /etc/nixos/modules/nerdfetch
