@@ -11,6 +11,10 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 250
 
+-- Syntax Highlighting
+vim.opt.termguicolors = true
+vim.cmd("colorscheme habamax")
+
 --#-- Telescope keymaps
 --local tb = require('telescope.builtin')
 --vim.keymap.set('n', '<leader>ff', tb.find_files)
