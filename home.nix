@@ -45,6 +45,10 @@
     swaynotificationcenter
     kdePackages.dolphin
     swww
+    # Misc
+    playerctl
+    ffmpeg
+    mpv
     # Apps
     discord
     obs-studio

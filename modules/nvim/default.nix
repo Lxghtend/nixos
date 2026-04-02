@@ -19,7 +19,7 @@
       #telescope-nvim
       #cmp-nvim-lsp
       #cmp-buffer
-      #{ plugin = nvim-treesitter.withAllGrammars; type = "lua"; config = "require('nvim-treesitter.configs').setup { highlight = { enable = true }, indent = { enable = true } }"; }
+      { plugin = nvim-treesitter.withAllGrammars; type = "lua"; config = "require('nvim-treesitter.configs').setup { highlight = { enable = true }, indent = { enable = true } }"; }
       #{ plugin = nvim-lspconfig;  type = "lua"; config = builtins.readFile ./lsp.lua; }
       #{ plugin = nvim-cmp;        type = "lua"; config = builtins.readFile ./cmp.lua; }
       #{ plugin = gitsigns-nvim;   type = "lua"; config = "require('gitsigns').setup()"; }
