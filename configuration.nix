@@ -12,7 +12,7 @@
     enable32Bit = true;
   };
 
-  boot.kernelModules = [ "amdgpu" ];
+  boot.kernelModules = [ "amdgpu" "i2c-dev" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -79,7 +79,8 @@
     nano
     git
     tailscale
-    brightnessctl    
+    brightnessctl
+    ddcutil
     bibata-cursors
     bluez
     blueman
