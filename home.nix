@@ -40,6 +40,9 @@
     kdePackages.dolphin
     swww
     discord
+    ffmpeg
+    playerctl
+    mpv
     obs-studio
     easyeffects
     fastfetch
