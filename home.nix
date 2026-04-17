@@ -49,6 +49,7 @@
     playerctl
     ffmpeg
     mpv
+    imv
     # Apps
     discord
     obs-studio
@@ -62,5 +63,6 @@
     #steam
     millennium-steam
     r2modman
+    prismlauncher
   ];
 }
