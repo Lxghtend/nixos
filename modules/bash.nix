@@ -7,6 +7,7 @@
       home = "sudo -E nvim /etc/nixos/home.nix";
       config = "sudo -E nvim /etc/nixos/configuration.nix";
       nixd = "cd /etc/nixos";
+      svim = "sudo -E nvim";
       extract = "tar -xf";
       bright = "sudo ddcutil setvcp 10 40 --display 2";
       dark = "sudo ddcutil setvcp 10 10 --display 2";

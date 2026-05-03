@@ -64,5 +64,6 @@
     millennium-steam
     r2modman
     prismlauncher
+    ryubing
   ];
 }
