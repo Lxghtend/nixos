@@ -154,7 +154,7 @@
         "$mainMod, SPACE, exec, pypr toggle term"
         "$mainMod, G, exec, pypr toggle music"
         "$mainMod, T, exec, pypr toggle taskbar"
-        "$mainMod, J, exec, pypr toggle files"
+        "$mainMod, A, exec, pypr toggle files"
       ];
 
       bindel = [
