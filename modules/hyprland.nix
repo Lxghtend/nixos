@@ -154,6 +154,7 @@
         "$mainMod, SPACE, exec, pypr toggle term"
         "$mainMod, G, exec, pypr toggle music"
         "$mainMod, T, exec, pypr toggle taskbar"
+        "$mainMod, J, exec, pypr toggle files"
       ];
 
       bindel = [
@@ -204,6 +205,13 @@
     animation = "fromLeft"
     command = "kitty --class kitty-taskbar -e htop"
     class = "kitty-taskbar"
+    size = "30% 80%"
+    offset = "200%"
+
+    [scratchpads.files]
+    animation = "fromRight"
+    command = "dolphin"
+    class = "org.kde.dolphin"
     size = "30% 80%"
     offset = "200%"
   '';
