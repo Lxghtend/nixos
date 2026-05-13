@@ -50,8 +50,9 @@
     ffmpeg
     mpv
     imv
+    celluloid
     # Apps
-    discord
+    discord  
     obs-studio
     easyeffects
     fastfetch

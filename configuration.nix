@@ -65,6 +65,7 @@
 
   services.tailscale.enable = true;
   services.blueman.enable = true;
+  services.mullvad-vpn.enable = true;
 
   users.users.ethan = {
     isNormalUser = true;
@@ -84,6 +85,7 @@
     bibata-cursors
     bluez
     blueman
+    mullvad-vpn
   ]; 
   system.stateVersion = "25.11";
 }

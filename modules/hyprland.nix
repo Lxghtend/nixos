@@ -4,9 +4,8 @@
     enable = true;
     settings = {
       monitor = [
-        "HDMI-A-1, 1920x1080@144.00, 0x0, 1"
-                #"DP-3, 1920x1080@240.00, 0x0, 1"
-                #"HDMI-A-1, 1920x1080@74.97 -1920x-60, 1"
+        "DP-1, 1920x1080@240.00, 0x0, 1"
+        "HDMI-A-1, 1920x1080@74.97, -1920x-20, 1"
       ];
 
       "$terminal" = "kitty";
@@ -156,6 +155,7 @@
         "$mainMod, SPACE, exec, pypr toggle term"
         "$mainMod, G, exec, pypr toggle music"
         "$mainMod, T, exec, pypr toggle taskbar"
+        "$mainMod, A, exec, pypr toggle files"
       ];
 
       bindel = [
@@ -206,6 +206,13 @@
     animation = "fromLeft"
     command = "kitty --class kitty-taskbar -e htop"
     class = "kitty-taskbar"
+    size = "30% 80%"
+    offset = "200%"
+
+    [scratchpads.files]
+    animation = "fromRight"
+    command = "dolphin"
+    class = "org.kde.dolphin"
     size = "30% 80%"
     offset = "200%"
   '';
