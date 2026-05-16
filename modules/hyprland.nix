@@ -151,6 +151,7 @@
         "ALT, up, movewindow, u"
         "ALT, down, movewindow, d"
         "$mainMod SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots/"
+        "$mainMod SHIFT, R, exec, obs-cmd replay save"
         "$mainMod, M, exit"
         "$mainMod, SPACE, exec, pypr toggle term"
         "$mainMod, G, exec, pypr toggle music"

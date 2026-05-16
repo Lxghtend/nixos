@@ -54,6 +54,7 @@
     # Apps
     discord  
     obs-studio
+    obs-cmd
     easyeffects
     fastfetch
     nerdfetch
