@@ -35,7 +35,7 @@
         gaps_in = 2;
         gaps_out = 10;
         border_size = 0;
-        resize_on_border = true;
+        resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
       };
@@ -98,8 +98,8 @@
       };
 
       device = {
-        name = "epic-mouse-v1";
-        sensitivity = 0;
+        name = "xppen-deco-01-v3-pen";
+        output = "DP-1";
       };
 
       layerrule = [
@@ -115,6 +115,7 @@
         "$mainMod, V, togglefloating"
         "$mainMod, R, exec, $menu"
         "$mainMod, S, exec, steam"
+        "$mainMod, I, exec, xournalpp"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
         "$mainMod, F, fullscreen"

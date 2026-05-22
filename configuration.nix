@@ -70,7 +70,7 @@
   users.users.ethan = {
     isNormalUser = true;
     description = "ethan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "input" "networkmanager" "wheel" ];
   };
 
   programs.firefox.enable = true;

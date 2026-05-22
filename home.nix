@@ -52,12 +52,14 @@
     imv
     celluloid
     # Apps
-    discord  
+    discord
+    xournalpp
     obs-studio
     obs-cmd
     easyeffects
     fastfetch
     nerdfetch
+    kdePackages.kdenlive
     # Fonts
     nerd-fonts.hurmit
     nerd-fonts.code-new-roman
