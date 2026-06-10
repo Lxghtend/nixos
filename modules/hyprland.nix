@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, clip-organizer-pkg, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -23,6 +23,7 @@
         "pypr"
         "swaync-client -df"
         "pactl set-sink-mute @DEFAULT_SINK@ 0"
+        "${clip-organizer-pkg}/bin/clip-organizer"
       ];
 
       env = [
@@ -158,6 +159,7 @@
         "$mainMod, G, exec, pypr toggle music"
         "$mainMod, T, exec, pypr toggle taskbar"
         "$mainMod, A, exec, pypr toggle files"
+        " , F8, exec, /etc/nixos/scripts/toggle-tablet.sh"
       ];
 
       bindel = [

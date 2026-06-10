@@ -36,6 +36,13 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  services.flatpak.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   services.xserver.enable = true;
   services.xserver.xkb = {
     layout = "us";

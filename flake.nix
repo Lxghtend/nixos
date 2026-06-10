@@ -10,10 +10,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    clip-organizer.url = "github:Lxghtend/clip-organizer/golang-hyprland";
   };
-  outputs = { nixpkgs, home-manager, minesddm, millennium, ... }: {
+  outputs = { nixpkgs, home-manager, minesddm, millennium, clip-organizer, ... }:
+  let
+    system = "x86_64-linux";
+    clip-organizer-pkg = clip-organizer.packages.${system}.default;
+  in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
@@ -21,11 +26,12 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ethan = import ./home.nix;
-	      home-manager.users.root = {
-		      imports = [ ./modules/nvim ];
-		      home.stateVersion = "25.11";
-	        };
+          home-manager.extraSpecialArgs = { inherit clip-organizer-pkg; };
+          home-manager.users.ethan = import ./home.nix; 
+          home-manager.users.root = {
+            imports = [ ./modules/nvim ];
+            home.stateVersion = "25.11";
+          };
           nixpkgs.overlays = [ millennium.overlays.default ];
         }
       ];

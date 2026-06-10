@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, clip-organizer-pkg, ... }: {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
   home.stateVersion = "25.11";
@@ -36,6 +36,7 @@
     cmake
     gcc
     gnumake
+    go
     # Desktop
     hyprshot
     pyprland
@@ -46,6 +47,7 @@
     kdePackages.dolphin
     swww
     # Misc
+    clip-organizer-pkg
     playerctl
     ffmpeg
     mpv
@@ -69,5 +71,6 @@
     r2modman
     prismlauncher
     ryubing
+    dolphin-emu   
   ];
 }
