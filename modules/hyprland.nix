@@ -97,9 +97,9 @@
       };
 
       device = {
-        name = "epic-mouse-v1";
-        sensitivity = 0;
-      };
+        name = "xppen-deco-01-v3-pen";
+        output = "eDP-1";
+        };
 
       layerrule = [
         "noanim, selection"
@@ -114,6 +114,7 @@
         "$mainMod, V, togglefloating"
         "$mainMod, R, exec, $menu"
         "$mainMod, S, exec, steam"
+        "$mainMod, I, exec, xournalpp"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
         "$mainMod, F, fullscreen"

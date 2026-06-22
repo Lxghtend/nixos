@@ -51,6 +51,7 @@
     swaynotificationcenter
     htop
     pulsemixer
+    xournalpp
     nerd-fonts.hurmit
     nerd-fonts.code-new-roman
     #steam
