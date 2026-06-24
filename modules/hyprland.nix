@@ -24,7 +24,6 @@
         "swaync-client -df"
         "pactl set-sink-mute @DEFAULT_SINK@ 0"
         "${clip-organizer-pkg}/bin/clip-organizer"
-        "/etc/nixos/scripts/clip.sh"
       ];
 
       env = [
