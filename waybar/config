@@ -19,7 +19,7 @@
             }
         },
         "hyprland/window": {
-            "format": "{}"
+            "format": "{initialTitle}"
         },
         "custom/notification": {
             "tooltip": false,
