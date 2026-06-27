@@ -72,6 +72,6 @@
     r2modman
     prismlauncher
     ryubing
-    dolphin-emu   
+    dolphin-emu 
   ];
 }
