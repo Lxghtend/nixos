@@ -118,6 +118,7 @@
         "$mainMod, R, exec, $menu"
         "$mainMod, S, exec, steam"
         "$mainMod, I, exec, xournalpp"
+        "$mainMod, K, exec, kopuz"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
         "$mainMod, F, fullscreen"
