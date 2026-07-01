@@ -43,6 +43,7 @@
     ffmpeg
     playerctl
     mpv
+    zed-editor
     obs-studio
     easyeffects
     fastfetch
