@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     minesddm = {
@@ -24,7 +24,7 @@
           home-manager.users.ethan = import ./home.nix;
           home-manager.users.root = {
             imports = [ ./modules/nvim ];
-            home.stateVersion = "25.11";
+            home.stateVersion = "26.05";
           };
           nixpkgs.overlays = [ millennium.overlays.default ];
         }
