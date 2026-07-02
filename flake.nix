@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     minesddm = {
@@ -11,9 +11,10 @@
     };
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     clip-organizer.url = "github:Lxghtend/clip-organizer/golang-hyprland";
-    kopuz.url = "github:temidaradev/kopuz";                                     # <-- added
+    kopuz.url = "github:Kopuz-org/kopuz";
   };
-  outputs = { nixpkgs, home-manager, minesddm, millennium, clip-organizer, kopuz, ... }:  # <-- added kopuz
+
+  outputs = { nixpkgs, home-manager, minesddm, millennium, clip-organizer, kopuz, ... }:  
   let
     system = "x86_64-linux";
     clip-organizer-pkg = clip-organizer.packages.${system}.default;
@@ -31,7 +32,7 @@
           home-manager.users.ethan = import ./home.nix;
           home-manager.users.root = {
             imports = [ ./modules/nvim ];
-            home.stateVersion = "25.11";
+            home.stateVersion = "26.05";
           };
           nixpkgs.overlays = [ millennium.overlays.default ];
           

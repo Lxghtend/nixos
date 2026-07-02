@@ -1,10 +1,10 @@
 { config, pkgs, clip-organizer-pkg, ... }: {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   imports = [
-    ./modules/hyprland.nix
+    #./modules/hyprland.nix
     ./modules/kitty.nix
     ./modules/bash.nix
     ./modules/wofi.nix
@@ -13,6 +13,9 @@
   ];
 
   xdg.configFile = {
+    "hypr/hyprland.lua".source = ./hypr/hyprland.lua;
+    "pypr/config.toml".source = ./hypr/pyprland.toml;
+
     "waybar/config".source = ./waybar/config;
     "waybar/style.css".source = ./waybar/style.css;
     "waybar/scripts".source = ./waybar/scripts;
@@ -45,7 +48,7 @@
     waybar
     swaynotificationcenter
     kdePackages.dolphin
-    swww
+    awww
     # Misc
     clip-organizer-pkg
     playerctl
@@ -57,6 +60,7 @@
     # Apps
     discord
     xournalpp
+    zed-editor
     obs-studio
     obs-cmd
     easyeffects
