@@ -84,6 +84,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    uwsm
     nano
     git
     tailscale

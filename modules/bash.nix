@@ -11,7 +11,7 @@
       extract = "tar -xf";
       bright = "sudo ddcutil setvcp 10 40 --display 2";
       dark = "sudo ddcutil setvcp 10 10 --display 2";
-      windows = "nix-shell -p efibootmgr --run 'sudo efibootmgr --bootnext 0003 && sudo reboot'";
+      windows = "nix-shell -p efibootmgr --run 'sudo efibootmgr --bootnext 0000 && sudo reboot'";
       nerdfetch = "/etc/nixos/modules/nerdfetch";
     };
     bashrcExtra = ''
