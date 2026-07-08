@@ -56,7 +56,7 @@
     mpv
     imv
     celluloid
-    evtest
+    evtest 
     # Apps
     discord
     xournalpp

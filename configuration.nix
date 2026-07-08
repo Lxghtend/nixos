@@ -72,7 +72,10 @@
 
   services.tailscale.enable = true;
   services.blueman.enable = true;
-  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
 
   users.users.ethan = {
     isNormalUser = true;
