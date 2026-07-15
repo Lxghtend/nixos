@@ -13,6 +13,12 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  fileSystems."/mnt/vmstorage" = {
+    device = "/dev/disk/by-uuid/fb0f575c-b440-43b6-b486-f7f082208e9f";
+    fsType = "ext4";
+    options = [ "defaults" "nofail" ];
+    };
+
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-uuid/115ac7de-2ecf-481e-a95e-5b1035c6f9b8";
     fsType = "ext4";

@@ -7,6 +7,9 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -80,7 +83,7 @@
   users.users.ethan = {
     isNormalUser = true;
     description = "ethan";
-    extraGroups = [ "input" "networkmanager" "wheel" ];
+    extraGroups = [ "input" "networkmanager" "wheel" "libvirtd" ];
   };
 
   programs.firefox.enable = true;
