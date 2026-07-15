@@ -1,0 +1,244 @@
+// niri config.kdl
+// Translated from a Hyprland (hyprland-lua) config.
+// Goes in ~/.config/niri/config.kdl
+//
+// NOTES ON THINGS THAT DON'T MAP 1:1 FROM HYPRLAND:
+// - pypr (Pyprland) scratchpads have no niri equivalent. The four
+//   `pypr toggle X` binds (term/music/taskbar/files) are commented out below;
+//   you'll need per-app floating window-rules + manual toggling, or drop pypr.
+// - hyprshot is Hyprland-specific. Swapped for niri's built-in screenshot
+//   action (screenshot UI lets you pick region/window/screen). If you'd
+//   rather keep a grim+slurp script, replace the spawn line.
+// - "pseudo" tiling and dwindle "togglesplit" have no niri concept (niri's
+//   layout is scrollable columns, not a binary tree) — dropped.
+// - mod+drag / mod+resize are enabled by default in niri, no bind needed.
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+
+    touchpad {
+        natural-scroll
+    }
+
+    focus-follows-mouse
+}
+
+output "DP-1" {
+    mode "1920x1080@240.001"
+    position x=0 y=0
+    scale 1
+}
+
+output "HDMI-A-1" {
+    mode "1920x1080@74.973"
+    position x=-1920 y=0
+    scale 1
+}
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 12
+}
+
+prefer-no-csd
+
+// --- startup ---
+spawn-at-startup "waybar" "-c" "/home/ethan/.config/waybar/niri/config" "-s" "/home/ethan/.config/waybar/niri/style.css"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "sh" "-c" "sleep .5 && awww restore"
+spawn-at-startup "swaync"
+// pypr has no niri equivalent (see notes above) — drop or replace
+// spawn-at-startup "pypr"
+spawn-at-startup "swaync-client" "-df"
+spawn-at-startup "sh" "-c" "pactl set-sink-mute @DEFAULT_SINK@ 0"
+spawn-at-startup "easyeffects" "--gapplication-service"
+spawn-at-startup "clip-organizer"
+spawn-at-startup "/etc/nixos/scripts/clip.sh"
+
+layout {
+    gaps 10
+
+    default-column-width {
+        proportion 0.5
+    }
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        off
+    }
+
+    shadow {
+        on
+        softness 30
+        spread 5
+        color "#00000080"
+    }
+}
+
+blur {
+    passes 5
+    offset 3.0
+}
+
+// approximation of the Hyprland active/inactive opacity + rounding
+window-rule {
+    match is-focused=true
+    geometry-corner-radius 10
+    clip-to-geometry true
+    opacity 0.78
+
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match is-focused=false
+    geometry-corner-radius 10
+    clip-to-geometry true
+    opacity 0.70
+
+    background-effect {
+        blur true
+    }
+}
+
+animations {
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+}
+
+layer-rule {
+    match namespace="selection"
+    block-out-from "screen-capture"
+}
+
+binds {
+    Mod+Q { spawn "kitty"; }
+    Mod+W { close-window; }
+    Mod+E { spawn "dolphin"; }
+    Mod+B { spawn "firefox"; }
+    Mod+D { spawn "discord"; }
+    Mod+V { toggle-window-floating; }
+    Mod+R { spawn "wofi" "-n"; }
+    Mod+S { spawn "steam"; }
+    Mod+I { spawn "xournalpp"; }
+    Mod+K { spawn "kopuz"; }
+    Mod+F { fullscreen-window; }
+
+    Mod+Shift+F { maximize-column; } 
+
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-down; }
+
+    Mod+O repeat=false { toggle-overview; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    Mod+Shift+Z { focus-workspace-down; }
+    Mod+Shift+X { focus-workspace-up; }
+
+    Mod+Shift+1 { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
+    Mod+Shift+0 { move-window-to-workspace 10; }
+
+    Mod+Shift+Ctrl+Z { move-window-to-workspace-down; }
+    Mod+Shift+Ctrl+X { move-window-to-workspace-up; }
+
+    Mod+F1 { focus-monitor-left; }
+    Mod+F2 { focus-monitor-right; }
+
+    Shift+F1  { move-workspace-to-monitor-left; }
+    Shift+F2  { move-workspace-to-monitor-right; }
+
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+
+    // Hyprland ALT+direction moved the focused window; closest niri
+    // equivalents are moving the column or the window within its column.
+    Alt+Left  { move-column-left; }
+    Alt+Right { move-column-right; }
+    Alt+Up    { move-window-up; }
+    Alt+Down  { move-window-down; }
+
+    Mod+J { consume-window-into-column; }
+
+    Mod+G         { switch-preset-column-width; }
+    Mod+Shift+G   { switch-preset-window-height; }
+
+    // niri's built-in screenshot UI (region/window/screen picker)
+    Mod+Shift+S { screenshot; }
+    // obs-cmd is a standalone tool, unrelated to the compositor — kept as-is
+    Mod+Shift+R { spawn "obs-cmd" "replay" "save"; }
+
+    Mod+M { quit; }
+
+    // No scratchpad system in niri (pypr) — these are stubbed out.
+    // Mod+Space { spawn "pypr" "toggle" "term"; }
+    // Mod+G     { spawn "pypr" "toggle" "music"; }
+    // Mod+T     { spawn "pypr" "toggle" "taskbar"; }
+    // Mod+A     { spawn "pypr" "toggle" "files"; }
+
+    F8 { spawn "/etc/nixos/scripts/toggle-tablet.sh"; }
+
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+    XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "s" "10%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "s" "10%-"; }
+
+    XF86AudioNext  allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPause allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPlay  allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev  allow-when-locked=true { spawn "playerctl" "previous"; }
+
+    // Mod+drag-to-move and Mod+right-drag-to-resize are niri defaults;
+    // no explicit mouse:272/273 binds needed.
+}

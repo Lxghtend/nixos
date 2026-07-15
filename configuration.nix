@@ -43,7 +43,11 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-gnome ];
+
+    config.niri = {
+      default = [ "gnome" "gtk" ];
+    };
   };
 
   services.xserver.enable = true;
@@ -52,7 +56,8 @@
     variant = "";
   };
 
-  programs.hyprland.enable = true;
+  #programs.hyprland.enable = true;
+  programs.niri.enable = true;
 
   services.displayManager.sddm = {
     enable = true;
