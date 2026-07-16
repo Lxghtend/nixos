@@ -16,11 +16,19 @@
     "hypr/hyprland.lua".source = ./hypr/hyprland.lua;
     "pypr/config.toml".source = ./hypr/pyprland.toml;
 
-    "waybar/config".source = ./waybar/config;
-    "waybar/style.css".source = ./waybar/style.css;
-    "waybar/scripts".source = ./waybar/scripts;
-    "waybar/assets".source = ./waybar/assets;
-    "waybar/themes".source = ./waybar/themes;
+    "niri/config.kdl".source = ./niri/config.kdl;
+
+    "waybar/hypr/config".source = ./waybar-hypr/config;
+    "waybar/hypr/style.css".source = ./waybar-hypr/style.css;
+    "waybar/hypr/scripts".source = ./waybar-hypr/scripts;
+    "waybar/hypr/assets".source = ./waybar-hypr/assets;
+    "waybar/hypr/themes".source = ./waybar-hypr/themes;
+
+    "waybar/niri/config".source = ./waybar-niri/config;
+    "waybar/niri/style.css".source = ./waybar-niri/style.css;
+    "waybar/niri/scripts".source = ./waybar-niri/scripts;
+    "waybar/niri/assets".source = ./waybar-niri/assets;
+    "waybar/niri/themes".source = ./waybar-niri/themes;
 
     "swaync/config.json".source = ./swaync/config.json;
     "swaync/style.css".source = ./swaync/style.css;

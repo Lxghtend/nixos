@@ -6,7 +6,7 @@ local menu = "wofi -n"
 local terminal = "kitty"
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar")
+    hl.exec_cmd("waybar -c ~/.config/waybar/hypr/config -s ~/.config/waybar/hypr/style.css")
     hl.exec_cmd("awww-daemon")
     hl.exec_cmd("sleep .5 && swww restore")
     hl.exec_cmd("swaync")
