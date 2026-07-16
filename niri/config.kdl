@@ -31,7 +31,7 @@ spawn-at-startup "discord"
 spawn-at-startup "obs" "--multi" "--startreplaybuffer"
 spawn-at-startup "kopuz"
 
-window-rule {
+/-window-rule {
     match app-id="firefox"
     open-on-workspace "firefox"
     open-maximized true
