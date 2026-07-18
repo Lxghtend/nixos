@@ -101,7 +101,7 @@ spawn-at-startup "swaync"
 spawn-at-startup "swaync-client" "-df"
 spawn-at-startup "sh" "-c" "pactl set-sink-mute @DEFAULT_SINK@ 0"
 spawn-at-startup "easyeffects" "--gapplication-service"
-spawn-at-startup "clip-organizer"
+spawn-at-startup "clip-organizer-niri"
 spawn-at-startup "/etc/nixos/scripts/clip.sh"
 
 layout {

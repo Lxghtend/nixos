@@ -1,4 +1,4 @@
-{ config, pkgs, clip-organizer-pkg, ... }: {
+{ config, pkgs, clip-organizer-pkg, clip-organizer-niri-pkg, ... }: {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
   home.stateVersion = "26.05";
@@ -59,6 +59,7 @@
     awww
     # Misc
     clip-organizer-pkg
+    clip-organizer-niri-pkg
     playerctl
     ffmpeg
     mpv
