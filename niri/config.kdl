@@ -1,17 +1,6 @@
 // niri config.kdl
 // Translated from a Hyprland (hyprland-lua) config.
 // Goes in ~/.config/niri/config.kdl
-//
-// NOTES ON THINGS THAT DON'T MAP 1:1 FROM HYPRLAND:
-// - pypr (Pyprland) scratchpads have no niri equivalent. The four
-//   `pypr toggle X` binds (term/music/taskbar/files) are commented out below;
-//   you'll need per-app floating window-rules + manual toggling, or drop pypr.
-// - hyprshot is Hyprland-specific. Swapped for niri's built-in screenshot
-//   action (screenshot UI lets you pick region/window/screen). If you'd
-//   rather keep a grim+slurp script, replace the spawn line.
-// - "pseudo" tiling and dwindle "togglesplit" have no niri concept (niri's
-//   layout is scrollable columns, not a binary tree) — dropped.
-// - mod+drag / mod+resize are enabled by default in niri, no bind needed.
 
 workspace "firefox" {
     open-on-output "HDMI-A-1"
@@ -27,7 +16,7 @@ workspace "music" {
 }
 
 //spawn-at-startup "firefox"
-spawn-at-startup "discord"
+spawn-at-startup "vesktop"
 spawn-at-startup "obs" "--multi" "--startreplaybuffer"
 spawn-at-startup "kopuz"
 
@@ -37,7 +26,7 @@ spawn-at-startup "kopuz"
     open-maximized true
 }
 window-rule {
-    match app-id="discord"
+    match app-id="vesktop"
     open-on-workspace "discord"
     open-maximized true
 }
@@ -69,6 +58,10 @@ input {
         natural-scroll
     }
 
+    tablet {
+        map-to-focused-output
+    }
+
     focus-follows-mouse
 }
 
@@ -96,8 +89,6 @@ spawn-at-startup "waybar" "-c" "/home/ethan/.config/waybar/niri/config" "-s" "/h
 spawn-at-startup "awww-daemon"
 spawn-at-startup "sh" "-c" "sleep .5 && awww restore"
 spawn-at-startup "swaync"
-// pypr has no niri equivalent (see notes above) — drop or replace
-// spawn-at-startup "pypr"
 spawn-at-startup "swaync-client" "-df"
 spawn-at-startup "sh" "-c" "pactl set-sink-mute @DEFAULT_SINK@ 0"
 spawn-at-startup "easyeffects" "--gapplication-service"
@@ -278,7 +269,11 @@ binds {
     Mod+Shift+R { spawn "obs-cmd" "replay" "save"; }
 
     Mod+M { quit; }
-
+    
+    Mod+Space { spawn-sh "nscratch -id kitty-dropterm -a -m"; }
+    Mod+H { spawn-sh "nscratch -id kitty-pulsemixer -a -m"; }
+    Mod+Y { spawn-sh "nscratch -id kitty-taskbar -a -m"; }
+    Mod+A { spawn-sh "nscratch -id org.kde.dolphin -a -m"; }
     // No scratchpad system in niri (pypr) — these are stubbed out.
     // Mod+Space { spawn "pypr" "toggle" "term"; }
     // Mod+G     { spawn "pypr" "toggle" "music"; }
@@ -302,3 +297,65 @@ binds {
     // Mod+drag-to-move and Mod+right-drag-to-resize are niri defaults;
     // no explicit mouse:272/273 binds needed.
 }
+
+// declare workspaces explicitly, "scratch" last
+workspace "placeholder1" {
+    open-on-output "DP-1"
+}
+workspace "placeholder2" {
+    open-on-output "DP-1"
+}
+workspace "placeholder3" {
+    open-on-output "DP-1"
+}
+/-workspace "placeholder4" {
+    open-on-output "DP-1"
+}
+workspace "scratch" {
+    open-on-output "DP-1"
+}
+
+// --- term (was: fromTop, 17% 6% pos, 65%x60% size) ---
+window-rule {
+    match app-id="^kitty-dropterm$"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { proportion 0.65; }
+    default-window-height { proportion 0.60; }
+    default-floating-position x=0 y=10 relative-to="top"
+}
+
+// --- music (was: fromBottom, 50%x20% size) ---
+window-rule {
+    match app-id="^kitty-pulsemixer$"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { proportion 0.50; }
+    default-window-height { proportion 0.20; }
+    default-floating-position x=0 y=25 relative-to="bottom"
+}
+
+// --- taskbar (was: fromLeft, 30%x80% size) ---
+window-rule {
+    match app-id="^kitty-taskbar$"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { proportion 0.30; }
+    default-window-height { proportion 0.80; }
+    default-floating-position x=10 y=0 relative-to="left"
+}
+
+// --- files (was: fromRight, 30%x80% size) ---
+window-rule {
+    match app-id="^org.kde.dolphin$"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { proportion 0.30; }
+    default-window-height { proportion 0.80; }
+    default-floating-position x=10 y=0 relative-to="right"
+}
+
+spawn-at-startup "kitty" "--class" "kitty-dropterm"
+spawn-at-startup "kitty" "--class" "kitty-pulsemixer" "-e" "pulsemixer"
+spawn-at-startup "kitty" "--class" "kitty-taskbar" "-e" "htop"
+spawn-at-startup "dolphin"
