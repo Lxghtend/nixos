@@ -65,6 +65,7 @@
     ffmpeg
     mpv
     imv
+    sox
     celluloid
     evtest
     xwayland-satellite
