@@ -41,9 +41,8 @@
         },
         "custom/mic-level": {
             "format": "{} dB",
-            "exec": "~/.config/waybar/niri/scripts/mic-level.sh",
+            "exec": "waybar-mic-monitor",
             "return-type": "json",
-            "interval": 1,
             "on-click": "easyeffects --bypass-toggle && easyeffects --bypass-toggle"
         },
         "network": {

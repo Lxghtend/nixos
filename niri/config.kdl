@@ -269,7 +269,9 @@ binds {
     Mod+Shift+R { spawn "obs-cmd" "replay" "save"; }
 
     Mod+M { quit; }
-    
+   
+    Mod+Shift+B { spawn "pkill" "-SIGUSR1" "waybar"; }
+
     Mod+Space { spawn-sh "nscratch -id kitty-dropterm -a -m"; }
     Mod+H { spawn-sh "nscratch -id kitty-pulsemixer -a -m"; }
     Mod+Y { spawn-sh "nscratch -id kitty-taskbar -a -m"; }
