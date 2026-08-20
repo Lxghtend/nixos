@@ -62,6 +62,7 @@
     pyprland
     swaynotificationcenter
     htop
+    xwayland-satellite
     pulsemixer
     xournalpp
     nerd-fonts.hurmit
