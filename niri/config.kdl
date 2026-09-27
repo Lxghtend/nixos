@@ -94,6 +94,7 @@ spawn-at-startup "sh" "-c" "pactl set-sink-mute @DEFAULT_SINK@ 0"
 spawn-at-startup "easyeffects" "--service-mode"
 spawn-at-startup "clip-organizer-niri"
 spawn-at-startup "/etc/nixos/scripts/clip.sh"
+spawn-at-startup "sh" "-c" "sleep 10 && replay-notify"
 
 layout {
     gaps 10
@@ -201,6 +202,7 @@ binds {
     Mod+S { spawn "steam"; }
     Mod+I { spawn "xournalpp"; }
     Mod+K { spawn "kopuz"; }
+    Mod+P { spawn "bitwarden"; }
     Mod+F { fullscreen-window; }
 
     Mod+Shift+F { maximize-column; } 

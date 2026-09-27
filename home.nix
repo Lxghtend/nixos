@@ -1,4 +1,4 @@
-{ config, pkgs, clip-organizer-pkg, clip-organizer-niri-pkg, niri-scratchpad-pkg, waybar-mic-monitor-pkg, ... }: {
+{ config, pkgs, clip-organizer-pkg, clip-organizer-niri-pkg, niri-scratchpad-pkg, waybar-mic-monitor-pkg, replay-notify-pkg, ... }: {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
   home.stateVersion = "26.05";
@@ -55,6 +55,7 @@
     htop
     waybar
     swaynotificationcenter
+    libnotify
     kdePackages.dolphin
     awww
     # Misc
@@ -62,6 +63,7 @@
     clip-organizer-niri-pkg
     niri-scratchpad-pkg
     waybar-mic-monitor-pkg
+    replay-notify-pkg
     playerctl
     ffmpeg
     mpv
@@ -70,6 +72,7 @@
     celluloid
     evtest
     xwayland-satellite
+    tigervnc
     # Apps
     discord
     vesktop
@@ -77,10 +80,13 @@
     zed-editor
     obs-studio
     obs-cmd
+    bitwarden-desktop
     easyeffects
     fastfetch
     nerdfetch
     kdePackages.kdenlive
+    krita
+    obsidian
     # Fonts
     nerd-fonts.hurmit
     nerd-fonts.code-new-roman

@@ -16,6 +16,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("easyeffects --service-mode")
     hl.exec_cmd("clip-organizer")
     hl.exec_cmd("/etc/nixos/scripts/clip.sh")
+    hl.exec_cmd("sleep 10 && replay-notify")
 end)
 
 hl.monitor({
