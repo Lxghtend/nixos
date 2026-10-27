@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/mnt/vmstorage" = {
-    device = "/dev/disk/by-uuid/fb0f575c-b440-43b6-b486-f7f082208e9f";
+    device = "/dev/disk/by-uuid/8a52c322-0917-4dfc-8ea2-3d149e700d4c";
     fsType = "ext4";
     options = [ "defaults" "nofail" ];
     };

@@ -2,6 +2,13 @@
 // Translated from a Hyprland (hyprland-lua) config.
 // Goes in ~/.config/niri/config.kdl
 
+// for stretch res
+window-rule {
+    match app-id=r#"^gamescope"#
+    open-fullscreen true
+    draw-border-with-background false
+}
+
 workspace "firefox" {
     open-on-output "HDMI-A-1"
 }
