@@ -12,7 +12,7 @@
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     clip-organizer.url = "github:Lxghtend/clip-organizer/golang-hyprland";
     clip-organizer-niri.url = "github:Lxghtend/clip-organizer/golang-niri";
-    kopuz.url = "github:Kopuz-org/kopuz";
+    kopuz.url = "github:Kopuz-org/kopuz/";
     niri-scratchpad.url = "github:gvolpe/niri-scratchpad";
     waybar-mic-monitor.url = "github:Lxghtend/waybar-mic-monitor";
     replay-notify.url = "github:Lxghtend/replay-notify";

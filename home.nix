@@ -73,6 +73,7 @@
     evtest
     xwayland-satellite
     tigervnc
+    openclaw
     # Apps
     discord
     vesktop
