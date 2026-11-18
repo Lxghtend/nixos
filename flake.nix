@@ -16,9 +16,10 @@
     niri-scratchpad.url = "github:gvolpe/niri-scratchpad";
     waybar-mic-monitor.url = "github:Lxghtend/waybar-mic-monitor";
     replay-notify.url = "github:Lxghtend/replay-notify";
+    tsugi.url = "git+https://github.com/Lxghtend/tsugi.git?ref=main";
   };
 
-  outputs = { nixpkgs, home-manager, minesddm, millennium, clip-organizer, clip-organizer-niri, kopuz, niri-scratchpad, waybar-mic-monitor, replay-notify, ... }:  
+  outputs = { nixpkgs, home-manager, minesddm, millennium, clip-organizer, clip-organizer-niri, kopuz, niri-scratchpad, waybar-mic-monitor, replay-notify, tsugi, ... }:
   let
     system = "x86_64-linux";
     clip-organizer-pkg = clip-organizer.packages.${system}.default;
@@ -37,7 +38,10 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit clip-organizer-pkg clip-organizer-niri-pkg niri-scratchpad-pkg waybar-mic-monitor-pkg replay-notify-pkg; };
-          home-manager.users.ethan = import ./home.nix;
+          home-manager.users.ethan = {
+            imports = [ ./home.nix tsugi.homeManagerModules.default ];
+            programs.tsugi.enable = true;
+          };
           home-manager.users.root = {
             imports = [ ./modules/nvim ];
             home.stateVersion = "26.05";
