@@ -1,4 +1,4 @@
-{ config, pkgs, clip-organizer-pkg, clip-organizer-niri-pkg, niri-scratchpad-pkg, waybar-mic-monitor-pkg, replay-notify-pkg, ... }: {
+{ config, unstable, pkgs, clip-organizer-pkg, clip-organizer-niri-pkg, niri-scratchpad-pkg, waybar-mic-monitor-pkg, replay-notify-pkg, ... }: {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
   home.stateVersion = "26.05";
@@ -73,7 +73,7 @@
     evtest
     xwayland-satellite
     tigervnc
-    openclaw
+    unstable.opencode
     # Apps
     discord
     vesktop

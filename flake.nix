@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +20,21 @@
     tsugi.url = "git+https://github.com/Lxghtend/tsugi.git?ref=main";
   };
 
-  outputs = { nixpkgs, home-manager, minesddm, millennium, clip-organizer, clip-organizer-niri, kopuz, niri-scratchpad, waybar-mic-monitor, replay-notify, tsugi, ... }:
+  outputs = {
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    minesddm,
+    millennium,
+    clip-organizer,
+    clip-organizer-niri,
+    kopuz,
+    niri-scratchpad,
+    waybar-mic-monitor,
+    replay-notify,
+    tsugi,
+    ...
+  }:
   let
     system = "x86_64-linux";
     clip-organizer-pkg = clip-organizer.packages.${system}.default;
@@ -37,7 +52,19 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit clip-organizer-pkg clip-organizer-niri-pkg niri-scratchpad-pkg waybar-mic-monitor-pkg replay-notify-pkg; };
+          home-manager.extraSpecialArgs = {
+            inherit
+              clip-organizer-pkg
+              clip-organizer-niri-pkg
+              niri-scratchpad-pkg
+              waybar-mic-monitor-pkg
+              replay-notify-pkg
+              ;
+            unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          };
           home-manager.users.ethan = {
             imports = [ ./home.nix tsugi.homeManagerModules.default ];
             programs.tsugi.enable = true;
@@ -47,9 +74,9 @@
             home.stateVersion = "26.05";
           };
           nixpkgs.overlays = [ millennium.overlays.default ];
-          
+
           nix.settings = {
-            substituters        = [ "https://kopuz.cachix.org" ];
+            substituters = [ "https://kopuz.cachix.org" ];
             trusted-public-keys = [ "kopuz.cachix.org-1:J2X3AnAYhKTJW5S3aCLoA1ckonQXVNZMQvhZA0YAufw=" ];
           };
           environment.systemPackages = [ kopuz.packages.${system}.default ];
