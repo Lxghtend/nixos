@@ -73,7 +73,6 @@
     evtest
     xwayland-satellite
     tigervnc
-    unstable.opencode
     # Apps
     discord
     vesktop
