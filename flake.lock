@@ -246,6 +246,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1794890597,
+        "narHash": "sha256-lME2lHoDHAaSHP3/okgiVoJ0icVEvsQH8LeU3We7tcc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "04906337b6d53e8bb0eaf0470ae9f070a4d4eb55",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1794756927,
@@ -381,7 +397,9 @@
         "minesddm": "minesddm",
         "niri-scratchpad": "niri-scratchpad",
         "nixpkgs": "nixpkgs_6",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "replay-notify": "replay-notify",
+        "tsugi": "tsugi",
         "waybar-mic-monitor": "waybar-mic-monitor"
       }
     },
@@ -436,9 +454,28 @@
         "type": "github"
       }
     },
-    "waybar-mic-monitor": {
+    "tsugi": {
       "inputs": {
         "nixpkgs": "nixpkgs_8"
+      },
+      "locked": {
+        "lastModified": 1795045848,
+        "narHash": "sha256-vSyURI+f/vxrfY+/IwYo1dfuzimOihbT1T6qPFUMOGM=",
+        "ref": "main",
+        "rev": "a1c51f5cd9c0a53dde63a271b94286fab3210f73",
+        "revCount": 20,
+        "type": "git",
+        "url": "https://github.com/Lxghtend/tsugi.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://github.com/Lxghtend/tsugi.git"
+      }
+    },
+    "waybar-mic-monitor": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_9"
       },
       "locked": {
         "lastModified": 1784861644,
