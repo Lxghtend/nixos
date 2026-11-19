@@ -1,4 +1,4 @@
-{ config, pkgs, clip-organizer-pkg, clip-organizer-niri-pkg, niri-scratchpad-pkg, waybar-mic-monitor-pkg, replay-notify-pkg, ... }: {
+{ config, pkgs, clip-organizer-pkg, clip-organizer-niri-pkg, niri-scratchpad-pkg, waybar-mic-monitor-pkg, replay-notify-pkg, tsugi-pkg, ... }: {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
   home.stateVersion = "26.05";
@@ -58,6 +58,7 @@
     libnotify
     kdePackages.dolphin
     awww
+    tsugi-pkg
     # Misc
     clip-organizer-pkg
     clip-organizer-niri-pkg
