@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,24 +16,9 @@
     niri-scratchpad.url = "github:gvolpe/niri-scratchpad";
     waybar-mic-monitor.url = "github:Lxghtend/waybar-mic-monitor";
     replay-notify.url = "github:Lxghtend/replay-notify";
-    tsugi.url = "git+https://github.com/Lxghtend/tsugi.git?ref=main";
   };
 
-  outputs = {
-    nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    minesddm,
-    millennium,
-    clip-organizer,
-    clip-organizer-niri,
-    kopuz,
-    niri-scratchpad,
-    waybar-mic-monitor,
-    replay-notify,
-    tsugi,
-    ...
-  }:
+  outputs = { nixpkgs, home-manager, minesddm, millennium, clip-organizer, clip-organizer-niri, kopuz, niri-scratchpad, waybar-mic-monitor, replay-notify, ... }:  
   let
     system = "x86_64-linux";
     clip-organizer-pkg = clip-organizer.packages.${system}.default;
@@ -52,31 +36,16 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {
-            inherit
-              clip-organizer-pkg
-              clip-organizer-niri-pkg
-              niri-scratchpad-pkg
-              waybar-mic-monitor-pkg
-              replay-notify-pkg
-              ;
-            unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-          };
-          home-manager.users.ethan = {
-            imports = [ ./home.nix tsugi.homeManagerModules.default ];
-            programs.tsugi.enable = true;
-          };
+          home-manager.extraSpecialArgs = { inherit clip-organizer-pkg clip-organizer-niri-pkg niri-scratchpad-pkg waybar-mic-monitor-pkg replay-notify-pkg; };
+          home-manager.users.ethan = import ./home.nix;
           home-manager.users.root = {
             imports = [ ./modules/nvim ];
             home.stateVersion = "26.05";
           };
           nixpkgs.overlays = [ millennium.overlays.default ];
-
+          
           nix.settings = {
-            substituters = [ "https://kopuz.cachix.org" ];
+            substituters        = [ "https://kopuz.cachix.org" ];
             trusted-public-keys = [ "kopuz.cachix.org-1:J2X3AnAYhKTJW5S3aCLoA1ckonQXVNZMQvhZA0YAufw=" ];
           };
           environment.systemPackages = [ kopuz.packages.${system}.default ];

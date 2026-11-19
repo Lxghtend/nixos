@@ -14,7 +14,7 @@
       tab_bar_style = "slant";
       enable_audio_bell = false;
       notify_on_cmd_finish = "unfocused";
-      confirm_os_window_close = 0;
+      confirm_os_window_close = 0;  
 
       foreground = "#c3c7c8";
       background = "#0f2024";

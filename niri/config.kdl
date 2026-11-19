@@ -2,24 +2,14 @@
 // Translated from a Hyprland (hyprland-lua) config.
 // Goes in ~/.config/niri/config.kdl
 
-// declare workspaces explicitly
-workspace "placeholder1" {
-    open-on-output "DP-1"
-}
-workspace "placeholder2" {
-    open-on-output "DP-1"
-}
-workspace "placeholder3" {
-    open-on-output "DP-1"
-}
-/-workspace "placeholder4" {
-    open-on-output "DP-1"
-}
-workspace "_stash" {
-    open-on-output "DP-1"
+// for stretch res
+window-rule {
+    match app-id=r#"^gamescope"#
+    open-fullscreen true
+    draw-border-with-background false
 }
 
-workspace "empty" {
+workspace "firefox" {
     open-on-output "HDMI-A-1"
 }
 workspace "discord" {
@@ -30,6 +20,32 @@ workspace "obs" {
 }
 workspace "music" {
     open-on-output "HDMI-A-1"
+}
+
+//spawn-at-startup "firefox"
+spawn-at-startup "vesktop"
+spawn-at-startup "obs" "--multi" "--startreplaybuffer"
+spawn-at-startup "kopuz"
+
+/-window-rule {
+    match app-id="firefox"
+    open-on-workspace "firefox"
+    open-maximized true
+}
+window-rule {
+    match app-id="vesktop"
+    open-on-workspace "discord"
+    open-maximized true
+}
+window-rule {
+    match app-id="obs"
+    open-on-workspace "obs"
+    open-maximized true
+}
+window-rule {
+    match app-id="kopuz"
+    open-on-workspace "music"
+    open-maximized true
 }
 
 screenshot-path "~/Pictures/nScreenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
@@ -76,7 +92,6 @@ cursor {
 prefer-no-csd
 
 // --- startup ---
-spawn-at-startup "sh" "-c" "tsugi switch startup"
 spawn-at-startup "waybar" "-c" "/home/ethan/.config/waybar/niri/config" "-s" "/home/ethan/.config/waybar/niri/style.css"
 spawn-at-startup "awww-daemon"
 spawn-at-startup "sh" "-c" "sleep .5 && awww restore"
@@ -266,11 +281,17 @@ binds {
    
     Mod+Shift+B { spawn "pkill" "-SIGUSR1" "waybar"; }
 
+    Mod+Space { spawn-sh "nscratch -id kitty-dropterm -a -m"; }
+    Mod+H { spawn-sh "nscratch -id kitty-pulsemixer -a -m"; }
+    Mod+Y { spawn-sh "nscratch -id kitty-taskbar -a -m"; }
+    Mod+A { spawn-sh "nscratch -id org.kde.dolphin -a -m"; }
     // No scratchpad system in niri (pypr) — these are stubbed out.
     // Mod+Space { spawn "pypr" "toggle" "term"; }
     // Mod+G     { spawn "pypr" "toggle" "music"; }
     // Mod+T     { spawn "pypr" "toggle" "taskbar"; }
     // Mod+A     { spawn "pypr" "toggle" "files"; }
+
+    F8 { spawn "/etc/nixos/scripts/toggle-tablet.sh"; }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
@@ -283,8 +304,69 @@ binds {
     XF86AudioPause allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioPlay  allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioPrev  allow-when-locked=true { spawn "playerctl" "previous"; }
+
     // Mod+drag-to-move and Mod+right-drag-to-resize are niri defaults;
     // no explicit mouse:272/273 binds needed.
 }
 
+// declare workspaces explicitly, "scratch" last
+workspace "placeholder1" {
+    open-on-output "DP-1"
+}
+workspace "placeholder2" {
+    open-on-output "DP-1"
+}
+workspace "placeholder3" {
+    open-on-output "DP-1"
+}
+/-workspace "placeholder4" {
+    open-on-output "DP-1"
+}
+workspace "scratch" {
+    open-on-output "DP-1"
+}
 
+// --- term (was: fromTop, 17% 6% pos, 65%x60% size) ---
+window-rule {
+    match app-id="^kitty-dropterm$"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { proportion 0.65; }
+    default-window-height { proportion 0.60; }
+    default-floating-position x=0 y=10 relative-to="top"
+}
+
+// --- music (was: fromBottom, 50%x20% size) ---
+window-rule {
+    match app-id="^kitty-pulsemixer$"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { proportion 0.50; }
+    default-window-height { proportion 0.20; }
+    default-floating-position x=0 y=25 relative-to="bottom"
+}
+
+// --- taskbar (was: fromLeft, 30%x80% size) ---
+window-rule {
+    match app-id="^kitty-taskbar$"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { proportion 0.30; }
+    default-window-height { proportion 0.80; }
+    default-floating-position x=10 y=0 relative-to="left"
+}
+
+// --- files (was: fromRight, 30%x80% size) ---
+window-rule {
+    match app-id="^org.kde.dolphin$"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { proportion 0.30; }
+    default-window-height { proportion 0.80; }
+    default-floating-position x=10 y=0 relative-to="right"
+}
+
+spawn-at-startup "kitty" "--class" "kitty-dropterm"
+spawn-at-startup "kitty" "--class" "kitty-pulsemixer" "-e" "pulsemixer"
+spawn-at-startup "kitty" "--class" "kitty-taskbar" "-e" "htop"
+spawn-at-startup "dolphin"
