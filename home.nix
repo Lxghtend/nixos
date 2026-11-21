@@ -10,6 +10,7 @@
     ./modules/wofi.nix
     ./modules/git.nix
     ./modules/nvim
+    ./modules/fuzzel.nix
   ];
 
   xdg.configFile = {
@@ -58,6 +59,7 @@
     libnotify
     kdePackages.dolphin
     awww
+    fuzzel
     tsugi-pkg
     # Misc
     clip-organizer-pkg
