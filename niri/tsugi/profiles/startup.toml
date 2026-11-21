@@ -1,0 +1,60 @@
+name = "startup"
+unmatched_policy = "ignore"
+stash_workspace = "_stash"
+on_enter = []
+on_exit = []
+
+[[workspaces]]
+name = "placeholder1"
+output = "DP-1"
+columns = []
+
+[[workspaces]]
+name = "placeholder2"
+output = "DP-1"
+columns = []
+
+[[workspaces]]
+name = "placeholder3"
+output = "DP-1"
+columns = []
+
+[[workspaces]]
+name = "empty"
+output = "HDMI-A-1"
+columns = []
+
+[[workspaces]]
+name = "discord"
+output = "HDMI-A-1"
+
+[[workspaces.columns]]
+width = 1900
+
+[[workspaces.columns.windows]]
+app_id = "vesktop"
+command = ["vesktop"]
+
+[[workspaces]]
+name = "obs"
+output = "HDMI-A-1"
+
+[[workspaces.columns]]
+width = 1900
+
+[[workspaces.columns.windows]]
+app_id = 'com\.obsproject\.Studio'
+command = ["obs", "--multi", "--startreplaybuffer"]
+cwd = "/home/ethan"
+
+[[workspaces]]
+name = "music"
+output = "HDMI-A-1"
+
+[[workspaces.columns]]
+width = 1900
+
+[[workspaces.columns.windows]]
+app_id = "kopuz"
+command = ["/nix/store/kcifnih3bfzrk2s2s7f584amlcl5s6mf-kopuz-0.68.0/bin/kopuz"]
+cwd = "/home/ethan"

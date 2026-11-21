@@ -18,6 +18,8 @@
     "pypr/config.toml".source = ./hypr/pyprland.toml;
 
     "niri/config.kdl".source = ./niri/config.kdl;
+    "tsugi/config.toml".source = ./niri/tsugi/config.toml;
+    "tsugi/profiles/startup.toml".source = ./niri/tsugi/profiles/startup.toml;
 
     "waybar/hypr/config".source = ./waybar-hypr/config;
     "waybar/hypr/style.css".source = ./waybar-hypr/style.css;

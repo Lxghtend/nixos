@@ -266,9 +266,8 @@ binds {
    
     Mod+Shift+B { spawn "pkill" "-SIGUSR1" "waybar"; }
 
-    Mod+Shift+P {
-        spawn "sh" "-c" r#"profile=$(tsugi list | fuzzel --dmenu --prompt 'Profile: ') && [ -n "$profile" ] && exec tsugi switch "$profile""#;
-    }
+    Mod+Shift+P { spawn "tsugi" "pick"; }
+    
     // No scratchpad system in niri (pypr) — these are stubbed out.
     // Mod+Space { spawn "pypr" "toggle" "term"; }
     // Mod+G     { spawn "pypr" "toggle" "music"; }

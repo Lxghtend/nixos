@@ -1,0 +1,10 @@
+always_stash = ["com.obsproject.Studio"]
+
+default_save_unmatched = "close"
+
+[focus_topmost]
+default = true
+
+[focus_topmost.outputs]
+"DP-1" = true
+"HDMI-A-1" = false

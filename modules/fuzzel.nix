@@ -12,7 +12,7 @@
       };
       colors = {
         # RRGGBBAA format: 'cc' gives ~80% opacity (semi-transparent)
-        background = "fdf6e3cc"; 
+        background = "0f2024cc"; 
       };
     };
   };

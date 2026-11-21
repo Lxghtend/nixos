@@ -458,11 +458,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1795119402,
-        "narHash": "sha256-Cgc6Vsn6f3+9Uwqdi6xJd3X1A1mNfcyx1ax5j0g+Hp4=",
+        "lastModified": 1795232998,
+        "narHash": "sha256-9Hjtb5LIUjBw35q04WDYJFL/vQR19o3QKFhRKlZCOG8=",
         "owner": "Lxghtend",
         "repo": "tsugi",
-        "rev": "360dc001fe66dc397d58b3e7cb063eaf8d235047",
+        "rev": "d9089df4748ff1aa1c83829f5a05174ca3bfeb29",
         "type": "github"
       },
       "original": {
