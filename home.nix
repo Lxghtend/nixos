@@ -21,17 +21,17 @@
     "tsugi/config.toml".source = ./niri/tsugi/config.toml;
     "tsugi/profiles/startup.toml".source = ./niri/tsugi/profiles/startup.toml;
 
-    "waybar/hypr/config".source = ./waybar-hypr/config;
-    "waybar/hypr/style.css".source = ./waybar-hypr/style.css;
-    "waybar/hypr/scripts".source = ./waybar-hypr/scripts;
-    "waybar/hypr/assets".source = ./waybar-hypr/assets;
-    "waybar/hypr/themes".source = ./waybar-hypr/themes;
+    "waybar/hypr/config".source = ./waybar/hypr/config;
+    "waybar/hypr/style.css".source = ./waybar/hypr/style.css;
+    "waybar/hypr/scripts".source = ./waybar/hypr/scripts;
+    "waybar/hypr/assets".source = ./waybar/hypr/assets;
+    "waybar/hypr/themes".source = ./waybar/hypr/themes;
 
-    "waybar/niri/config".source = ./waybar-niri/config;
-    "waybar/niri/style.css".source = ./waybar-niri/style.css;
-    "waybar/niri/scripts".source = ./waybar-niri/scripts;
-    "waybar/niri/assets".source = ./waybar-niri/assets;
-    "waybar/niri/themes".source = ./waybar-niri/themes;
+    "waybar/niri/config".source = ./waybar/niri/config;
+    "waybar/niri/style.css".source = ./waybar/niri/style.css;
+    "waybar/niri/scripts".source = ./waybar/niri/scripts;
+    "waybar/niri/assets".source = ./waybar/niri/assets;
+    "waybar/niri/themes".source = ./waybar/niri/themes;
 
     "swaync/config.json".source = ./swaync/config.json;
     "swaync/style.css".source = ./swaync/style.css;
